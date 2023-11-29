@@ -3,6 +3,7 @@
 - ⏰ 스터디 일시: Fix 예정
 - 🏫 스터디 장소: 온/오프라인 병행
 - 📚 스터디 자료: 모던 리액트 딥다이브 (리엑트의 핵심 개념과 동작원리부터 Next.js까지)
+  - 예시 코드: https://github.com/wikibook/react-deep-dive-example
 
 ---
 
