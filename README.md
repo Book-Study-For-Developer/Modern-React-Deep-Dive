@@ -1,6 +1,6 @@
 ## ![image](https://github.com/Front-End-Book-Study/Modern-React-Deep-Dive/assets/51049245/15424391-49c1-4747-b72d-523cf27472bb)
 
-- ⏰ 스터디 일시: Fix 예정
+- ⏰ 스터디 일시: 매주 목요일 21시 30분(온라인)/오프라인은 되는 인원끼리 모여서 진행
 - 🏫 스터디 장소: 온/오프라인 병행
 - 📚 스터디 자료: 모던 리액트 딥다이브 (리액트의 핵심 개념과 동작원리부터 Next.js까지)
   - 예시 코드: https://github.com/wikibook/react-deep-dive-example
@@ -55,7 +55,13 @@
       <img src="https://avatars.githubusercontent.com/u/87746574?v=4" width="120px" height="120px"/>
     </td>
     <td>
-      <img src="https://avatars.githubusercontent.com/u/80936447?v=4" width="120px" height="120px"/>
+      <img src="https://avatars.githubusercontent.com/u/54339836?v=4" width="120px" height="120px"/>
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/102217654?v=4" width="120px" height="120px"/>
+    </td>
+     <td>
+      <img src="https://avatars.githubusercontent.com/u/27201591?v=4" width="120px" height="120px"/>
     </td>
   </tr>
   <tr>
@@ -80,8 +86,18 @@
       </a>
     </td>
     <td>
-      <a href="https://github.com/youtothena">
-        박유나
+      <a href="https://github.com/soojin-aqara">
+        박수진
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/SEOKKAMONI">
+        김석진
+      </a>
+    </td>
+    <td>
+      <a href="https://github.com/y00eunji">
+        유은지
       </a>
     </td>
   </tr>
