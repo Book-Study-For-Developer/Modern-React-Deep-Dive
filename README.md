@@ -54,16 +54,8 @@
      <td>
       <img src="https://avatars.githubusercontent.com/u/87746574?v=4" width="120px" height="120px"/>
     </td>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/54339836?v=4" width="120px" height="120px"/>
-    </td>
-    <td>
-      <img src="https://avatars.githubusercontent.com/u/102217654?v=4" width="120px" height="120px"/>
-    </td>
-     <td>
-      <img src="https://avatars.githubusercontent.com/u/27201591?v=4" width="120px" height="120px"/>
-    </td>
   </tr>
+
   <tr>
     <td>
       <a href="https://github.com/haryan248">
@@ -85,6 +77,20 @@
         김지후
       </a>
     </td>
+  </tr>
+    <tr>  
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/54339836?v=4" width="120px" height="120px"/>
+    </td>
+    <td>
+      <img src="https://avatars.githubusercontent.com/u/102217654?v=4" width="120px" height="120px"/>
+    </td>
+     <td>
+      <img src="https://avatars.githubusercontent.com/u/27201591?v=4" width="120px" height="120px"/>
+    </td>
+      <td></td>
+  </tr>
+  <tr>
     <td>
       <a href="https://github.com/soojin-aqara">
         박수진
@@ -100,5 +106,6 @@
         유은지
       </a>
     </td>
+    <td></td>
   </tr>
   </table>
