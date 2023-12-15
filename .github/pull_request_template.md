@@ -6,4 +6,6 @@
 - [ ] @wontory
 - [ ] @guesung
 - [ ] @jihoo-o
-- [ ] @youtothena
+- [ ] @soojin-aqara
+- [ ] @y00eunji
+- [ ] @SEOKKAMONI
