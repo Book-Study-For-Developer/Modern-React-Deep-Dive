@@ -22,7 +22,7 @@
   - [파이버와 가상 DOM](#파이버와-가상-dom)
   - [정리](#정리-1)
 - [2.3 클래스형 컴포넌트와 함수형 컴포넌트](#23-클래스형-컴포넌트와-함수형-컴포넌트)
-  - [클래스형 컴포넌트의 생명주기###](#클래스형-컴포넌트의-생명주기)
+  - [클래스형 컴포넌트의 생명주기](#클래스형-컴포넌트의-생명주기)
   - [클래스형 컴포넌트의 한계](#클래스형-컴포넌트의-한계)
   - [함수형 컴포넌트](#함수형-컴포넌트)
   - [정리](#정리-2)
@@ -437,7 +437,7 @@ class SampleComponent extends React.Component<SampleProps, SampleState> {
 export default SampleComponent;
 ```
 
-###클래스형 컴포넌트의 생명주기###
+###클래스형 컴포넌트의 생명주기
 ![Alt text](image-1.png)https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 
 **생명주기가 실행되는 시점**
