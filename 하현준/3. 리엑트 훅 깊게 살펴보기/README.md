@@ -6,21 +6,21 @@
 
 ```tsx
 function Component() {
-    const [, triggerRender] = useState();
+  const [, triggerRender] = useState();
 
-    let state = "hello";
+  let state = "hello";
 
-    function handleButtonClick() {
-        state = "hi";
-        triggerRender();
-    }
+  function handleButtonClick() {
+    state = "hi";
+    triggerRender();
+  }
 
-    return (
-        <>
-            <h1>{state}</h1>
-            <button onClick={handleButtonClick}>hi</button>
-        </>
-    );
+  return (
+    <>
+      <h1>{state}</h1>
+      <button onClick={handleButtonClick}>hi</button>
+    </>
+  );
 }
 ```
 
@@ -36,44 +36,44 @@ function Component() {
 import { useState } from "react";
 
 function createInitialTodos() {
-    const initialTodos = [];
-    for (let i = 0; i < 50; i++) {
-        initialTodos.push({
-            id: i,
-            text: "Item " + (i + 1),
-        });
-    }
-    return initialTodos;
+  const initialTodos = [];
+  for (let i = 0; i < 50; i++) {
+    initialTodos.push({
+      id: i,
+      text: "Item " + (i + 1),
+    });
+  }
+  return initialTodos;
 }
 
 export default function TodoList() {
-    const [todos, setTodos] = useState(createInitialTodos);
-    const [text, setText] = useState("");
+  const [todos, setTodos] = useState(createInitialTodos);
+  const [text, setText] = useState("");
 
-    return (
-        <>
-            <input value={text} onChange={(e) => setText(e.target.value)} />
-            <button
-                onClick={() => {
-                    setText("");
-                    setTodos([
-                        {
-                            id: todos.length,
-                            text: text,
-                        },
-                        ...todos,
-                    ]);
-                }}
-            >
-                Add
-            </button>
-            <ul>
-                {todos.map((item) => (
-                    <li key={item.id}>{item.text}</li>
-                ))}
-            </ul>
-        </>
-    );
+  return (
+    <>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <button
+        onClick={() => {
+          setText("");
+          setTodos([
+            {
+              id: todos.length,
+              text: text,
+            },
+            ...todos,
+          ]);
+        }}
+      >
+        Add
+      </button>
+      <ul>
+        {todos.map((item) => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
+    </>
+  );
 }
 ```
 
@@ -83,9 +83,9 @@ export default function TodoList() {
 
 useEffect의 흔한 답변
 
--   useEffect는 두 개의 인수를 받는데, 첫 번째는 콜백, 두 번째는 의존성 배열이다. 이 두번째 의존성 배열의 값이 변경되면 첫 번째 인수인 콜백을 실행
--   클래스형 컴포넌트의 생명주기 메서드와 비슷한 작동을 구현할 수 있다. 두 번째 의존성 배열에 빈 배열을 넣으면 컴포넌트가 마운트될 때만 실행된다.
--   useEffect는 클린업 함수를 반환할 수 있는데, 이 클린업 함수는 컴포넌트가 언마운트될 때 실행된다.
+- useEffect는 두 개의 인수를 받는데, 첫 번째는 콜백, 두 번째는 의존성 배열이다. 이 두번째 의존성 배열의 값이 변경되면 첫 번째 인수인 콜백을 실행
+- 클래스형 컴포넌트의 생명주기 메서드와 비슷한 작동을 구현할 수 있다. 두 번째 의존성 배열에 빈 배열을 넣으면 컴포넌트가 마운트될 때만 실행된다.
+- useEffect는 클린업 함수를 반환할 수 있는데, 이 클린업 함수는 컴포넌트가 언마운트될 때 실행된다.
 
 위의 정의는 어느정도 맞지만 완전히 정확하진 않다. 또한, **생명주기 메서드를 대체하기 위해 만들어진 훅이 아니다.**
 
@@ -95,18 +95,18 @@ useEffect는 의존성 배열이 변경될 때마다 콜백을 실행하지만 �
 
 ```tsx
 function Component() {
-    const counter = 1;
+  const counter = 1;
 
-    useEffect(() => {
-        console.log(counter); // 1, 2, 3, 4
-    });
+  useEffect(() => {
+    console.log(counter); // 1, 2, 3, 4
+  });
 
-    return (
-        <>
-            <h1>{counter}</h1>
-            <button onClick={handleClick}>+</button>
-        </>
-    );
+  return (
+    <>
+      <h1>{counter}</h1>
+      <button onClick={handleClick}>+</button>
+    </>
+  );
 }
 ```
 
@@ -117,30 +117,30 @@ function Component() {
 ```tsx
 // 최초 실행
 useEffect(() => {
-    function addMouseEvent() {
-        console.log(1);
-    }
+  function addMouseEvent() {
+    console.log(1);
+  }
 
-    window.addEventListner("click", addMouseEvent);
+  window.addEventListner("click", addMouseEvent);
 
-    return () => {
-        console.log("클린업 함수 실행!", 1); // 1이 들어감
-        window.removeEventListenr("click", addMouseEvent);
-    };
+  return () => {
+    console.log("클린업 함수 실행!", 1); // 1이 들어감
+    window.removeEventListenr("click", addMouseEvent);
+  };
 }, [counter]);
 
 // 다음 렌더링
 useEffect(() => {
-    function addMouseEvent() {
-        console.log(2);
-    }
+  function addMouseEvent() {
+    console.log(2);
+  }
 
-    window.addEventListner("click", addMouseEvent);
+  window.addEventListner("click", addMouseEvent);
 
-    return () => {
-        console.log("클린업 함수 실행!", 2); // 2가 들어감
-        window.removeEventListenr("click", addMouseEvent);
-    };
+  return () => {
+    console.log("클린업 함수 실행!", 2); // 2가 들어감
+    window.removeEventListenr("click", addMouseEvent);
+  };
 }, [counter]);
 ```
 
@@ -167,9 +167,9 @@ function Component() {
 
 두 코드의 차이점
 
--   서버 사이드 렌더링 관점에서 useEffect는 클라이언트 사이드에서 실행되는 것을 보장해준다.
-    window 객체의 접근에 의존하는 코드를 사용해도 된다.
--   useEffect는 컴포넌트 렌더링의 부수 효과, 즉 컴포넌트의 렌더링이 완료된 이후에 실행된다. 그러나 직접 실행은 렌더링되는 도중에 실행되고, 서버 사이드 렌더링의 경우에 서버에서도 실행된다. 또한 만약 무거운 작업을 할 경우 렌더링을 방해해 성능에 악영향을 미칠 수 있다.
+- 서버 사이드 렌더링 관점에서 useEffect는 클라이언트 사이드에서 실행되는 것을 보장해준다.
+  window 객체의 접근에 의존하는 코드를 사용해도 된다.
+- useEffect는 컴포넌트 렌더링의 부수 효과, 즉 컴포넌트의 렌더링이 완료된 이후에 실행된다. 그러나 직접 실행은 렌더링되는 도중에 실행되고, 서버 사이드 렌더링의 경우에 서버에서도 실행된다. 또한 만약 무거운 작업을 할 경우 렌더링을 방해해 성능에 악영향을 미칠 수 있다.
 
 **useEffect를 사용할 때 주의할 점**
 
@@ -185,10 +185,10 @@ useEffect의 코드가 복잡해지고 무슨 일을 파악하기 어려워지�
 
 ```tsx
 useEffct(
-    function logActiveUser() {
-        logging(user.id);
-    },
-    [user.id]
+  function logActiveUser() {
+    logging(user.id);
+  },
+  [user.id]
 );
 ```
 
@@ -203,38 +203,38 @@ useEffct(
 ```tsx
 // Bad
 function Component({ id }: { id: string }) {
-    const [info, setInfo] = useState<number | null>(null);
-    const controllerRef = useRef<AbortController | null>(null);
-    const fetchInformation = useCallback(async (fetchId: string) => {
-        controllerRef.current?.abort();
-        controllerRef.current = new AbortController();
+  const [info, setInfo] = useState<number | null>(null);
+  const controllerRef = useRef<AbortController | null>(null);
+  const fetchInformation = useCallback(async (fetchId: string) => {
+    controllerRef.current?.abort();
+    controllerRef.current = new AbortController();
 
-        const result = await fetchInfo(fetchId, {
-            sginal: controllerRef.signal,
-        });
-        setInfo(await result.json());
-    }, []);
+    const result = await fetchInfo(fetchId, {
+      sginal: controllerRef.signal,
+    });
+    setInfo(await result.json());
+  }, []);
 
-    useEffect(() => {
-        fetchInformation(id);
-        return () => controllerRef.current?.abort();
-    }, [id, fetchInformation]);
+  useEffect(() => {
+    fetchInformation(id);
+    return () => controllerRef.current?.abort();
+  }, [id, fetchInformation]);
 }
 
 // Good
 function Component({ id }: { id: string }) {
-    const [info, setInfo] = useState<number | null>(null);
+  const [info, setInfo] = useState<number | null>(null);
 
-    useEffect(() => {
-        const controller = new AbortController();
+  useEffect(() => {
+    const controller = new AbortController();
 
-        (async () => {
-            const result = await fetchInfo(id, { sginal: controller.signal });
-            setInfo(await result.json());
-        })();
+    (async () => {
+      const result = await fetchInfo(id, { sginal: controller.signal });
+      setInfo(await result.json());
+    })();
 
-        return () => controller.abort();
-    }, [id]);
+    return () => controller.abort();
+  }, [id]);
 }
 ```
 
@@ -257,18 +257,18 @@ const MemoizedComponent = useMemo(() => <ExpensiveComponent value={value />, [va
 
 ```tsx
 function App() {
-    const [status1, setStatus1] = useState(false);
+  const [status1, setStatus1] = useState(false);
 
-    // 여기에도 기명 함수를 사용
-    // 개발자 도구에서 디버깅을 용이하게 하기 위함이다.
-    const toggle1 = useCallback(
-        function toggle1() {
-            setStatus1(!status1);
-        },
-        [status1]
-    );
+  // 여기에도 기명 함수를 사용
+  // 개발자 도구에서 디버깅을 용이하게 하기 위함이다.
+  const toggle1 = useCallback(
+    function toggle1() {
+      setStatus1(!status1);
+    },
+    [status1]
+  );
 
-    return <ChildComponent onChange={toggle1} />;
+  return <ChildComponent onChange={toggle1} />;
 }
 ```
 
@@ -278,7 +278,7 @@ function App() {
 
 ```tsx
 const toggle1 = useMemo(() => {
-    return () => setStatus1(!status1);
+  return () => setStatus1(!status1);
 }, [status1]);
 ```
 
@@ -288,37 +288,37 @@ const toggle1 = useMemo(() => {
 
 useRef는 컴포넌트 내부에서 렌더링이 일어나도 변경 가능한 상태값을 저장한다. 이때 useState와 두가지 차이점이 있다.
 
--   useRef는 반환값인 객체 내부에 있는 current로 값에 접근 또는 변경할 수 있다.
--   useRef 값이 변하더라도 렌더링을 발생시키지 않는다.
+- useRef는 반환값인 객체 내부에 있는 current로 값에 접근 또는 변경할 수 있다.
+- useRef 값이 변하더라도 렌더링을 발생시키지 않는다.
 
 개발자가 원하는 시점의 값을 렌더링에 영향을 미치지 않고 보관해 두고 싶을 때 사용하는 것이 좋다.
 
 ```tsx
 function usePrevious(value) {
-    const ref = useRef();
-    useEffect(() => {
-        ref.current = value;
-    }, []);
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  }, []);
 
-    return ref.current;
+  return ref.current;
 }
 
 function SomeComponent() {
-    const [counter, setCounter] = useState(0);
-    const previousCounter = usePrevious(counter);
+  const [counter, setCounter] = useState(0);
+  const previousCounter = usePrevious(counter);
 
-    function handleClick() {
-        setCounter((prev) => prev + 1);
-    }
+  function handleClick() {
+    setCounter((prev) => prev + 1);
+  }
 
-    // 0 undefined
-    // 1, 0
-    // 2, 1
-    return (
-        <button onClick={handleClick}>
-            {counter} {previousCounter}
-        </button>
-    );
+  // 0 undefined
+  // 1, 0
+  // 2, 1
+  return (
+    <button onClick={handleClick}>
+      {counter} {previousCounter}
+    </button>
+  );
 }
 ```
 
@@ -372,8 +372,8 @@ useContext가 선언돼 있으면 Provider에 의존성을 가지고 있게 되�
 
 상태 관리 라이브러리가 되기 위한 조건
 
--   어떠한 상태를 기반으로 다른 상태를 만들어 낼 수 있어야 한다.
--   필요에 따라 이러한 상태 변화를 최적화할 수 있어야 한다.
+- 어떠한 상태를 기반으로 다른 상태를 만들어 낼 수 있어야 한다.
+- 필요에 따라 이러한 상태 변화를 최적화할 수 있어야 한다.
 
 Context는 둘 중 하나도 하지 못하기에 상태 관리 라이브러리가 아니다.
 
@@ -385,29 +385,29 @@ useState의 심화버전으로 보면 된다.
 
 `useReducer`의 반환 값
 
--   **state**: 현재 useReducer 가 가지고 있는 값
--   **dispatcher**: state를 업데이트하는 함수. state를 변경할 수 있는 액션을 넘기게 된다.
+- **state**: 현재 useReducer 가 가지고 있는 값
+- **dispatcher**: state를 업데이트하는 함수. state를 변경할 수 있는 액션을 넘기게 된다.
 
 `useReducer`의 인수
 
--   **reducer**: 기본 action을 정의하는 함수
--   **initialState**: useReducer의 초깃값을 의미
--   **init**: useState의 게으른 초기화 처럼 초깃값을 지연해서 생성시키고 싶을 때 사용하는 함수이다.
+- **reducer**: 기본 action을 정의하는 함수
+- **initialState**: useReducer의 초깃값을 의미
+- **init**: useState의 게으른 초기화 처럼 초깃값을 지연해서 생성시키고 싶을 때 사용하는 함수이다.
 
 useReducer로 useState 구현하기
 
 ```tsx
 function reducer(prevState, newState) {
-    return typeof newState === "function" ? newState(prevState) : newState;
+  return typeof newState === "function" ? newState(prevState) : newState;
 }
 
 // 초기값 처리
 function init(initialArg: Initializer) {
-    return typeof initialArg === "function" ? initialArg() : initialArg;
+  return typeof initialArg === "function" ? initialArg() : initialArg;
 }
 
 function useState(initialArg) {
-    return useReducer(reducer, initialArg, init);
+  return useReducer(reducer, initialArg, init);
 }
 ```
 
@@ -415,17 +415,12 @@ useState로 useReducer 구현하기
 
 ```tsx
 const useReducer = (reducer, initialArg, init) => {
-    const [state, setState] = useState(
-        init ? () => init(initialArg) : initialArg
-    );
+  const [state, setState] = useState(init ? () => init(initialArg) : initialArg);
 
-    // dispatch 함수 선언
-    const dispatch = useCallback(
-        (action) => setState((prev) => reducer(prev, action)),
-        [reducer]
-    );
+  // dispatch 함수 선언
+  const dispatch = useCallback((action) => setState((prev) => reducer(prev, action)), [reducer]);
 
-    return useMemo(() => [state, dispatch], [state, dispatch]);
+  return useMemo(() => [state, dispatch], [state, dispatch]);
 };
 ```
 
@@ -443,21 +438,21 @@ useImperativeHandle을 이해하기 위해 forwardRef를 먼저 알아야 한다
 
 ```tsx
 const ChildComponent = forwardRef(
-    (props, ref) => {
-        return <div>안녕!</div>;
-    },
-    [ref]
+  (props, ref) => {
+    return <div>안녕!</div>;
+  },
+  [ref]
 );
 
 function ParentComponent() {
-    const inputRef = useRef();
+  const inputRef = useRef();
 
-    return (
-        <>
-            <input ref={inputRef} />
-            <ChildComponent ref={inputRef} />
-        </>
-    );
+  return (
+    <>
+      <input ref={inputRef} />
+      <ChildComponent ref={inputRef} />
+    </>
+  );
 }
 ```
 
@@ -511,16 +506,16 @@ useEffect와 동일하나, 모든 돔이 변경 후에 **동기적**으로 발�
 
 ```tsx
 function useDate() {
-    const date = new Date();
-    useDebugValue(date, (date) => `현재 시간: ${date.toISOString()}`);
+  const date = new Date();
+  useDebugValue(date, (date) => `현재 시간: ${date.toISOString()}`);
 
-    return date;
+  return date;
 }
 
 function App() {
-    const date = useDate();
+  const date = useDate();
 
-    // 생략
+  // 생략
 }
 ```
 
@@ -528,8 +523,8 @@ function App() {
 
 ### 훅의 규칙
 
--   최상위에서만 훅을 호출해야 한다. 반복문이나 조건문, 중첩된 함수 내에서 훅을 실행할 수 없다.
--   훅을 호출할 수 있는 것을 리액트 함수형 컴포넌트, 사용자 정의 훅의 두가지 경우만 있다.
+- 최상위에서만 훅을 호출해야 한다. 반복문이나 조건문, 중첩된 함수 내에서 훅을 실행할 수 없다.
+- 훅을 호출할 수 있는 것을 리액트 함수형 컴포넌트, 사용자 정의 훅의 두가지 경우만 있다.
 
 조건문, 루프내에서 사용할 수 있는 훅: https://react.dev/reference/react/use
 
@@ -543,22 +538,22 @@ function App() {
 
 ```tsx
 function useOnlineStatus() {
-    const [isOnline, setIsOnline] = useState(true);
-    useEffect(() => {
-        function handleOnline() {
-            setIsOnline(true);
-        }
-        function handleOffline() {
-            setIsOnline(false);
-        }
-        window.addEventListener("online", handleOnline);
-        window.addEventListener("offline", handleOffline);
-        return () => {
-            window.removeEventListener("online", handleOnline);
-            window.removeEventListener("offline", handleOffline);
-        };
-    }, []);
-    return isOnline;
+  const [isOnline, setIsOnline] = useState(true);
+  useEffect(() => {
+    function handleOnline() {
+      setIsOnline(true);
+    }
+    function handleOffline() {
+      setIsOnline(false);
+    }
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
+    return () => {
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
+    };
+  }, []);
+  return isOnline;
 }
 ```
 
@@ -574,11 +569,11 @@ function useOnlineStatus() {
 
 ```tsx
 const setState = (function () {
-    let currentIndex = index;
+  let currentIndex = index;
 
-    return function (value) {
-        global.states[currentInex] = value;
-    };
+  return function (value) {
+    global.states[currentInex] = value;
+  };
 })();
 ```
 
@@ -586,9 +581,9 @@ useState에서 반환된 두 번째 배열의 값으로 실행할 수 있는 함
 
 ```tsx
 function add(a) {
-    return function (b) {
-        return a + b;
-    };
+  return function (b) {
+    return a + b;
+  };
 }
 
 const result = add(1); // result는 반환한 함수가 된다.
@@ -603,25 +598,25 @@ a = 1이라는 정보가 담긴 클로저가 result에 포함됐고 result(2)가
 
 ```tsx
 function withLoginComponent<T>(Component: ComponentType<T>) {
-    return function (props: T & LoginProps) {
-        const { loginRequired, ...restProps } = props;
+  return function (props: T & LoginProps) {
+    const { loginRequired, ...restProps } = props;
 
-        if (loginRequired) {
-            return "로그인이 필요합니다.";
-        }
-    };
+    if (loginRequired) {
+      return "로그인이 필요합니다.";
+    }
+  };
 
-    return <Component {...(restProps as T)} />;
+  return <Component {...(restProps as T)} />;
 }
 
 const Component = withLoginComponent((props: { value: string }) => {
-    return <h3>{props.value}</h3>;
+  return <h3>{props.value}</h3>;
 });
 
 function App() {
-    const isLogin = true;
+  const isLogin = true;
 
-    return <Component value="text" loginRequired={isLogin} />;
+  return <Component value="text" loginRequired={isLogin} />;
 }
 ```
 
@@ -631,9 +626,9 @@ function App() {
 
 **주의할 점**
 
--   부수효과를 최소화해야 한다.
-    반드시 컴포넌트의 props를 임의로 수정, 추가, 삭제하는 일은 없어야 한다.
--   여러 개의 고차 컴포넌트로 컴포넌트를 감쌀 경우 복잡성이 커진다.
+- 부수효과를 최소화해야 한다.
+  반드시 컴포넌트의 props를 임의로 수정, 추가, 삭제하는 일은 없어야 한다.
+- 여러 개의 고차 컴포넌트로 컴포넌트를 감쌀 경우 복잡성이 커진다.
 
 ### 사용자 정의 훅과 고차 컴포넌트 중 무엇을 써야 할까?
 
@@ -646,12 +641,12 @@ useEffect, useState와 같이 리액트에서 제공되는 훅으로만 공통 �
 ```tsx
 // 사용자 정의 훅
 function HookComponent() {
-    const { loggedIn } = useLogin();
+  const { loggedIn } = useLogin();
 
-    useEffect(() => {
-        if (!loggedIn) {
-        }
-    }, [loggedIn]);
+  useEffect(() => {
+    if (!loggedIn) {
+    }
+  }, [loggedIn]);
 }
 
 // 고차 컴포넌트
@@ -667,17 +662,17 @@ const HOCComponent = withLoginComponent(() => {});
 ```tsx
 // 사용자 정의 훅
 function HookComponent() {
-    const { loggedIn } = useLogin();
+  const { loggedIn } = useLogin();
 
-    if (!loggedIn) {
-        return <LoginComponent />; // 공통 컴포넌트 노출
-    }
-    return "안녕하세요";
+  if (!loggedIn) {
+    return <LoginComponent />; // 공통 컴포넌트 노출
+  }
+  return "안녕하세요";
 }
 
 // 고차 컴포넌트
 const HOCComponent = withLoginComponent(() => {
-    return "안녕하세요";
+  return "안녕하세요";
 });
 ```
 
