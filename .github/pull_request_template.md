@@ -1,11 +1,3 @@
 **Description**
 
-**Reviewers**
-
-- [ ] @haryan248
-- [ ] @wontory
-- [ ] @guesung
-- [ ] @jihoo-o
-- [ ] @soojin-aqara
-- [ ] @y00eunji
-- [ ] @SEOKKAMONI
+<!-- Please briefly summarize the contents of the study and write if you have anything additional to share. -->
