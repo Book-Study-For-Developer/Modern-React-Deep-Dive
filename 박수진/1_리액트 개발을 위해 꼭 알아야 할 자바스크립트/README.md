@@ -115,7 +115,7 @@ console.log(Object.is(obj, {}));
 
 ### 리액트 값비교
 
-**shalloEqual**
+**shallowEqual**
 
 - 리액트에서는 shallowEqual 함수를 값을 비교해야하는 곳에서 사용한다
 - shallowEqual 함수는 자바스크립트 Object\.is 매서드와 객체 비교 로직을 포함한다.
