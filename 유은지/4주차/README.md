@@ -79,7 +79,7 @@
 - renderToString과 renderToStaticMarkup과 달리 브라우저에서 실행 불가능
 - 문자열이 아닌 Node.js의 ReadableStream을 반환한다
 - 큰 크기의 데이터를 청크 단위로 분리해 조금씩 가져와 순차적으로 처리할 수 있다
-- 대부분의 리액트 서버 사이드 렌더링 프레임워크는 모두 renderToNodeStream을 채택한다****
+- 대부분의 리액트 서버 사이드 렌더링 프레임워크는 모두 renderToNodeStream을 채택한다
 
 ## **renderToStaticNodeStream**
 
