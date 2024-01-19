@@ -8,7 +8,7 @@ Flux 패턴의 등장
 
 MVC 패턴은 모델과 뷰가 많아질수록 복잡도가 증가
 
-!https://miro.medium.com/v2/resize:fit:1400/0*ZTe7dIoLlUFYFbML.png
+![](https://miro.medium.com/v2/resize:fit:1400/0*ZTe7dIoLlUFYFbML.png)
 
 - 액션(Action): 어더한 작업을 처리할 액션과 그 액션 발생 시 함께 포함시킬 데이터를 의미
 - 디스패처(dispatcher): 액션을 스토어에 보내는 역할을 함, 액션이 정의한 **타입과 데이터를 모두 스토어**에 보냄
