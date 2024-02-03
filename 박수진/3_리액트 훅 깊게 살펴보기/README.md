@@ -99,7 +99,7 @@ const [count, setCount] = useState(() =>
 
 ### 3.1.2 useEffect
 
-어플리케이션 내 컴포넌트의 여러 값들을 하ㅗㅗㄹ용해 동기적으로 부수 효과를 만드는 매커니즘
+어플리케이션 내 컴포넌트의 여러 값들을 활용해 동기적으로 부수 효과를 만드는 매커니즘
 
 #### useEffect란?
 
@@ -345,7 +345,7 @@ export default DOMAccessExample;
 
 2. 원하는 시점의 값을 랜더링에 영향 미치지 않고 보관하고 싶을 때,
 
-``` tsx
+```tsx
 const usePrevious = (value) => {
   const prevValueRef = useRef();
 
@@ -354,10 +354,11 @@ const usePrevious = (value) => {
   }, [value]);
 
   return prevValueRef.current;
-}
+};
 ```
 
 **Preact의 useRef구현**
+
 - 값이 변경되도 랜더링이 되면 안되기에, 빈배열을 의존성 배열로 줌으로 랜더링 마다 동일한 객체를 가리키는 결과를 낳는다.
 - current 값을 바꿔도 객체의 참조값이 유지 된다.
 
@@ -370,9 +371,49 @@ export function useRef(initialValue) {
 
 ### 3.1.6 useContext
 
+props 내려주기( drilling )를 극복하기 위해 등장한 개념으로 하위 컴포넌트 모두에서 자유롭게 사용이 가능하게 해준다.
+
+**useContext**
+
+- provider 에 의존성을 가진다. 가장 가까운 provider 의 값을 사용한다.
+- useContext 가 랜더링 최적화를 해주지 않는다. 단지 context의 상태에 접근할 수 있게 하는 것 뿐이다.
+  - 예시: useContext 를 사용하는 component 만 랜더링이 일어나야할 것 같은데, 그렇지 않은 컴포넌트도 부모에서 랜더링되면 같이 된다.
+
 ### 3.1.7 useReducer
 
-### 3.1.8 useImperativeHandle
+    useState 의 심화버전이라고 생각하면 된다.
+    	const [state, dispatcher] = useReducer( reducer, initialState, init )
+    		반환값은 useState 와 같이 길이가 2인 배열
+    		인수는 2~3개의 인수가 필요하다
+    			reducer
+    				앞서 선언한 state 와 action을 기반으로 state가 어떻게 변경될지 정의
+    			initialState
+    				useReducer의 초깃값
+    			init
+    				필수가 아님, useState에 함수를 넘겨주면 게으른 초기화가 일어나 듯이, 이곳에 인수를 념겨주는 함수를 넣으면 initialState 를 인수로 init 함수가 실행됨
+    		initialState로 초기화한 이후에, state 의 업데이트는 action에 따라 정의해둔 reducer를 호출해주는 dispatcher 를 이용하면 된다.
+    어떨 때 사용?
+    	number 나 boolean 같이 간단한 값을 관라하는 것은 useState로 충분하다
+    	state 하나가 가져야할 값이 복잡하고, 이를 수정하는 경우의 수가 많아진다면 useReducer 로 관리하는 것이 효율적이다.
+    useState 와의 차이?
+    	useReducer 이나 useState 는 둘다 세부 작동과 쓰임에만 차이가 있고, 클로저로 값을 가둬서 state를 관리한다.
+    	useReducer 로 useState 를 구현할 수 있고, useState 로 useReducer 를 구현할 수 있다.
+    		Preact의 useState 를 살펴보면, useReducer 로 구현되어 있다.
+    			useState 를 구현하기 위해서 useReducer의 dispatcher 를 값을 업데이트해서 반환하거나, 새로운 값을 반환하는 함수로 구현해주면 된다.
+    		useReducer을 useState로 구현?
+    			내부에서 useState 를 사용해서 값을 관리한다.
+    			dispatch 함수를 다음과 같이 reducer를 실행해서 결과 값을 반환하게 구현한다.  useCallback을 이용해서 메모이제이션 해준다.
+
+### useImperativeHandle
+
+    forwardRef 살펴보기
+    	useRef 로 생성된 ref는 주로 HTMLElement 에 접근하는 용도로 쓰인다. 하지만 리액트 컴포넌트에 직접 넣어서 사용할 수가 없다.
+    		이를 해결하기 위해서 props 의 이름을 다르게 줘서 사용할 수 있다.
+    		forwardRef 는 위와 같이 동일한 작업을 하는 리액트 API
+    			다른 HTMLElement 에 ref 를 전달하는 것과 같이 일관성을 제공
+    			확실하게 ref 를 전달할 것임을 예측
+    useImperativeHandle 이란?
+    	부모에게서 넘겨받은 ref를 원하는 대로 수정할 수 있는 훅
 
 ### 3.1.9 useLayoutEffect
 
