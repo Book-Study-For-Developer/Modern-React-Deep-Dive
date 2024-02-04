@@ -69,7 +69,7 @@
     </td>
     <td>
       <a href="https://github.com/guesung">
-        박규성
+        박규성 (중도 하차)
       </a>
     </td>
     <td>
@@ -98,12 +98,12 @@
     </td>
     <td>
       <a href="https://github.com/SEOKKAMONI">
-        김석진
+        김석진 (중도 하차)
       </a>
     </td>
     <td>
       <a href="https://github.com/y00eunji">
-        유은지
+        유은지 (중도 하차)
       </a>
     </td>
     <td></td>
