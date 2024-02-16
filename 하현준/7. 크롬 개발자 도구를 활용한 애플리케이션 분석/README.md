@@ -39,7 +39,7 @@
 
 현재 웹페이지가 차지하고 있는 메모리 관련 정보를 확인할 수 있다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/6abd7909-3800-464f-9a56-e5ca35111ad1/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/5af1b2a5-89ae-492a-8e1d-9b9cc9d1631d)
 
 -   힙 스냅샷: 현재 메모리 상황을 사진 찍듯이 촬영한다.
 -   타임라인 할당 계측: 현재 시점의 메모리 상황이 아닌, 시간의 흐름에 따라 메모리의 변화를 살펴볼 수 있다.
@@ -53,7 +53,7 @@
 
 현재 페이지의 메모리 상태를 확인해 볼 수 있는 메모리 프로파일 도구다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/0533263c-636a-4e3f-a41a-ee8069725f4b/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/8d274af0-ab3c-489f-95b3-3b24f43468f6)
 
 <aside>
 ✅ **얕은 크기(Shallow Size)**와 **유지된 크기(Retained Size)**의 차이점은 무엇인가요?
@@ -72,9 +72,9 @@
 
 시간의 흐름에 따라 메모리 변화를 확인할 수 있는 기능이다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/f24af1a7-8308-45b9-be2a-b346d410d67b/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/108bef8d-fce0-44d4-86b2-78b1878c4a44)
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/b9b06acc-49cd-42f2-876e-4101eb23a857/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/0f1554ef-4a48-4c18-b053-a1207838b6eb)
 
 특정 변수를 클릭해 **전역 변수로 저장(Store as global variable)**을 클릭해 확인이 가능하다.
 
