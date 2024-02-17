@@ -4,7 +4,7 @@
 - 🏫 스터디 장소: 온/오프라인 병행
 - 📚 스터디 자료: 모던 리액트 딥다이브 (리액트의 핵심 개념과 동작원리부터 Next.js까지)
   - 예시 코드: https://github.com/wikibook/react-deep-dive-example
-
+  - 정요표: https://wikibook.co.kr/react-deep-dive/ (초판이다보니 오탈자가 많은 것 같아요. [issue](https://github.com/wikibook/react-deep-dive-example/issues)도 같이 확인해주세요.)
 ---
 
 ### 🚀 진행 방식
@@ -69,7 +69,7 @@
     </td>
     <td>
       <a href="https://github.com/guesung">
-        박규성
+        박규성 (중도 하차)
       </a>
     </td>
     <td>
@@ -98,12 +98,12 @@
     </td>
     <td>
       <a href="https://github.com/SEOKKAMONI">
-        김석진
+        김석진 (중도 하차)
       </a>
     </td>
     <td>
       <a href="https://github.com/y00eunji">
-        유은지
+        유은지 (중도 하차)
       </a>
     </td>
     <td></td>
