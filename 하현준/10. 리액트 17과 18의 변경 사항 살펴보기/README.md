@@ -151,7 +151,7 @@ useTransition하고 사용법에 차이만 있을 뿐 동일한 역할을 하는
 
 테어링(tearing)현상을 방지하기 위해 나타난 훅이다. 렌더링을 일시 중지하거나 뒤로 미루는 등의 최적화가 가능해지면서 동시성 이슈가 발생할 수 있다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/cb6cb554-9cf6-467e-a18a-4e44cb09af7f/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/f6bd34df-45f0-4e4d-a6fa-8b68a130daae)
 
 1. 첫 번째 컴포넌트에서는 외부 데이터 스토어의 값이 파란색이었으므로 파란색으로 렌더링했다.
 2. 그리고 나머지 컴포넌트들도 파란색으로 렌더링을 준비하고 있었다.
