@@ -115,7 +115,8 @@ Google Analytics나 Firebase와 같이 타사 스크립트를 넣는 경우 사�
 
 **→ 저희 회사에서도 이 때문에 타사 스크립트는 `async`를 항상 넣어줍니다.**
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/253d1ac1-0c8d-4179-8d90-21ade38e0aea/e2175651-e4db-4e8f-bf99-34278552151d/Untitled.png)
+![image](https://github.com/Book-Study-For-Developer/Modern-React-Deep-Dive/assets/51049245/ec768364-406b-4973-8435-53a0349c7143)
+
 
 ## 5. 누적 레이아웃 이동(CLS)
 
